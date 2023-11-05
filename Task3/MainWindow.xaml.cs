@@ -34,32 +34,38 @@ namespace Task3
 
            if (args.Length >= 3)
             {
-                double numb1 = double.Parse(args[0]);
-                double numb2 = double.Parse(args[1]);
-                string oper = args[2];
-                double res = 0;
-                switch (oper)
+                double numb1, numb2;
+                if (double.TryParse(args[0], out numb1) && double.TryParse(args[1], out numb2))
                 {
-                    case "+":
-                        res = numb1 + numb2;
-                        Test.Text = $"{numb1} {oper} {numb2} = {res}";
-                        break;
-                    case "-":
-                        res = numb1 - numb2;
-                        Test.Text = $"{numb1} {oper} {numb2} = {res}";
-                        break;
-                    case "*":
-                        res = numb1 * numb2;
-                        Test.Text = $"{numb1} {oper} {numb2} = {res}";
-                        break;
-                    case "/":
-                        if (numb2 != 0) 
-                        { res = numb1 / numb2;
-                        Test.Text = $"{numb1} {oper} {numb2} = {res}";                        }
-                        else { Test.Text = "Prohibited action"; }
-                        break;
+                    string oper = args[2];
+                    double res = 0;
+                    switch (oper)
+                    {
+                        case "+":
+                            res = numb1 + numb2;
+                            Test.Text = $"{numb1} {oper} {numb2} = {res}";
+                            break;
+                        case "-":
+                            res = numb1 - numb2;
+                            Test.Text = $"{numb1} {oper} {numb2} = {res}";
+                            break;
+                        case "*":
+                            res = numb1 * numb2;
+                            Test.Text = $"{numb1} {oper} {numb2} = {res}";
+                            break;
+                        case "/":
+                            if (numb2 != 0)
+                            {
+                                res = numb1 / numb2;
+                                Test.Text = $"{numb1} {oper} {numb2} = {res}";
+                            }
+                            else { Test.Text = "Prohibited action"; }
+                            break;
+                    }
+
                 }
-           }
+                else { Test.Text = "Invalid input for number1 or(and) number2"; }
+            }
 
         }
     }

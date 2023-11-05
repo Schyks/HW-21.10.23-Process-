@@ -39,9 +39,9 @@ namespace Task4
                 {
                     string fileContent = File.ReadAllText(path);
                     int count = Regex.Matches(fileContent, @"\b" + word + @"\b", RegexOptions.IgnoreCase).Count;
-                    Test1.Text = ($"Слово '{word}' зустрiчається в файлi {count} разiв.");
+                    Test1.Text = ($"The word '{word}' occurs in the file {count} times.");
                 }
-                else { Test1.Text = ("Файл не знайдено."); }
+                else { Test1.Text = ("File not found!"); }
             }
         }
     }
